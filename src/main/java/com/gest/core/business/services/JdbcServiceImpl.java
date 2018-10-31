@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import com.gest.core.business.services.JdbcService;
 import com.gest.core.business.services.JdbcServiceImpl;
 import com.gestwebapp.web.utils.ConfigBean;
@@ -13,6 +17,8 @@ class JdbcServiceImpl implements JdbcService {
 	private static JdbcServiceImpl _instance = null;
 
 	private static ConfigBean config = null;
+	
+	private DataSource ds;
 
 	private JdbcServiceImpl(ConfigBean cb) throws RuntimeException {
 
@@ -43,13 +49,23 @@ class JdbcServiceImpl implements JdbcService {
 
 		return _instance;
 	}
-
+	@Override
 	public Connection getDatabaseConnection() throws SQLException {
 		Connection connection = null;
-		
-		connection = DriverManager.getConnection(config.getDatabaseUrl(), config.getDatabaseUsername(),
+		if (config.getDatabaseConnectionMethod().equals("DS")) {
+		try {
+			  Context context = new InitialContext();
+			  Context envContext  = (Context)context.lookup("CONTEXT_DS_ENV");
+			  ds =(javax.sql.DataSource)envContext.lookup("CONTEXT_JNDI_NAME");
+			  connection = ds.getConnection();
+			  connection.close();
+			}catch (Exception e) { 
+			  e.printStackTrace(); 
+			}
+		} else if(config.getDatabaseConnectionMethod().equals("DM")) {
+			connection = DriverManager.getConnection(config.getDatabaseUrl(), config.getDatabaseUsername(),
 				config.getDatabasePassword());
-		
+		}
 		return connection;
 	}
 
