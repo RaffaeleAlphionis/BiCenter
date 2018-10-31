@@ -12,7 +12,7 @@ import com.gest.core.business.services.JdbcService;
 import com.gest.core.business.services.JdbcServiceImpl;
 import com.gestwebapp.web.utils.ConfigBean;
 
-class JdbcServiceImpl implements JdbcService {
+public class JdbcServiceImpl implements JdbcService {
 	
 	private static JdbcServiceImpl _instance = null;
 
@@ -49,6 +49,7 @@ class JdbcServiceImpl implements JdbcService {
 
 		return _instance;
 	}
+
 	@Override
 	public Connection getDatabaseConnection() throws SQLException {
 		Connection connection = null;
@@ -65,8 +66,10 @@ class JdbcServiceImpl implements JdbcService {
 		} else if(config.getDatabaseConnectionMethod().equals("DM")) {
 			connection = DriverManager.getConnection(config.getDatabaseUrl(), config.getDatabaseUsername(),
 				config.getDatabasePassword());
+		
 		}
 		return connection;
+		
 	}
 
 	public void terminateServices() {

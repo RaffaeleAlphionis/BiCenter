@@ -18,11 +18,23 @@
 		<init-param>
 			<description>
     		</description>
-			<param-name>DATA_URL</param-name>
-			<param-value>jdbc:mysql://localhost:3306/gest</param-value>
-		</init-param>
-		<init-param>
-			<description>
+    		<param-name>DATA_URL</param-name>
+    		<param-value>jdbc:mysql://localhost:3306/bicenter</param-value>
+    	</init-param>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>DATA_DRIVER_mauro</param-name>
+    		<param-value>com.mysql.cj.jdbc.Driver</param-value>
+    	</init-param>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>DATA_URL_mauro</param-name>
+    		<param-value>jdbc:mysql://127.0.0.1:3306/bicenter?allowMultiQueries=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</param-value>
+    	</init-param>
+    	<init-param>
+    		<description>
     		</description>
 			<param-name>DATA_USERNAME</param-name>
 			<param-value>root</param-value>
@@ -54,7 +66,7 @@
     	-->	
       <description>metodo di connessione richiesta</description>
       <param-name>DATABASE_METHOD</param-name>
-      <param-value>DM</param-value>
+      <param-value>DS</param-value>
     </init-param>
 	
 	</servlet>
