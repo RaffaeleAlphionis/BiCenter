@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>Gest</display-name>
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
+    <servlet>
+    	<description>
+    	Servlet per il caricamento delle info di connessione</description>
+    	<display-name>ServiceLoader</display-name>
+    	<servlet-name>ServiceLoader</servlet-name>
+    	<servlet-class>com.gestwebapp.servlet.core.ServiceLoader</servlet-class>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>DATA_DRIVER</param-name>
+    		<param-value>com.mysql.jdbc.Driver</param-value>
+    	</init-param>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>DATA_URL</param-name>
+    		<param-value>jdbc:mysql://localhost:3306/gest</param-value>
+    	</init-param>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>DATA_USERNAME</param-name>
+    		<param-value>root</param-value>
+    	</init-param>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>DATA_PASSWORD</param-name>
+    		<param-value>root</param-value>
+    	</init-param>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>ServiceLoader</servlet-name>
+    	<url-pattern>/ServiceLoader</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>/WEB-INF/pages/index.jsp</welcome-file>
         </welcome-file-list>
