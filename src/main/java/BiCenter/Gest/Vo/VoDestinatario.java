@@ -22,6 +22,9 @@ public class VoDestinatario {
 		this.email = email;
 		this.telefono = telefono;
 	}
+	public VoDestinatario() {
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getIdDest() {
 		return idDest;
 	}

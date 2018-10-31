@@ -1,11 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>Gest</display-name>
+    <servlet-mapping>
+    	<servlet-name>ServiceLoader</servlet-name>
+    	<url-pattern>/ServiceLoader</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+     <servlet>
+    <description>Servlet per il caricamento delle configurazioni iniziali</description>
+    <display-name>ServiceLoaderServlet</display-name>
+    <servlet-name>ServiceLoaderServlet</servlet-name>
+    <servlet-class>BiCenter.Gest.servlet.ServiceLoaderServlet</servlet-class>
+    <init-param>
+      <description>Driver per la connessione alla base dati</description>
+      <param-name>DATABASE_DRIVER</param-name>
+      <param-value>com.mysql.jdbc.Driver</param-value>
+    </init-param>
+    <init-param>
+      <description>URL per la connessione alla base dati</description>
+      <param-name>DATABASE_URL</param-name>
+      <param-value>jdbc:mysql://localhost:3306/Gest</param-value>
+    </init-param>
+    <init-param>
+      <description>USERNAME per la connessione alla base dati</description>
+      <param-name>DATABASE_USERNAME</param-name>
+      <param-value>root</param-value>
+    </init-param>
+    <init-param>
+      <description>PASSWORD per la connessione alla base dati</description>
+      <param-name>DATABASE_PASSWORD</param-name>
+      <param-value>root</param-value>
+    </init-param>
+    <init-param>
+      <description>indirizzo del jndi Name</description>
+      <param-name>CONTEXT_JNDI_NAME</param-name>
+      <param-value>jdbc/Gest</param-value>
+    </init-param>
+    <init-param>
+      <description>indirizzo del DS</description>
+      <param-name>CONTEXT_DS_ENV</param-name>
+      <param-value>java:/comp/env</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
         </welcome-file-list>

@@ -19,6 +19,9 @@ public class VoAula {
 		this.piano = piano;
 		this.posti = posti;
 	}
+	public VoAula() {
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getIdAula() {
 		return idAula;
 	}

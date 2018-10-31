@@ -26,6 +26,9 @@ public class VoDocente {
 		this.telefono = telefono;
 		this.materia = materia;
 	}
+	public VoDocente() {
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getIdDocente() {
 		return idDocente;
 	}

@@ -31,6 +31,9 @@ public class VoCorso {
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
 	}
+	public VoCorso() {
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getIdCorso() {
 		return idCorso;
 	}

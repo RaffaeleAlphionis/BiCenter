@@ -8,10 +8,15 @@ public class VoDipendente {
 	 * @param username
 	 * @param password
 	 */
+	
+	
 	public VoDipendente(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
+	}
+	public VoDipendente() {
+		// TODO Auto-generated constructor stub
 	}
 	public String getUsername() {
 		return username;

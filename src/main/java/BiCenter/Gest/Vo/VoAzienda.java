@@ -27,6 +27,9 @@ public class VoAzienda {
 		this.referente = referente;
 		this.email = email;
 	}
+	public VoAzienda() {
+		// TODO Auto-generated constructor stub
+	}
 	public Integer getIdAzienda() {
 		return idAzienda;
 	}
