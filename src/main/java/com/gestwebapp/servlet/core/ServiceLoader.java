@@ -16,6 +16,7 @@ public class ServiceLoader extends HttpServlet {
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
+	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		
@@ -25,8 +26,8 @@ public class ServiceLoader extends HttpServlet {
 		
 		// recupero parametri di configurazione da file esterno
 		
-		String databaseDriver   = getInitParameter("DATABASE_DRIVER");
-		String databaseUrl	    = getInitParameter("DATABASE_URL");
+		String databaseDriver   = getInitParameter("DATABASE_DRIVER_mauro");
+		String databaseUrl	    = getInitParameter("DATABASE_URL_mauro");
 		String databaseUsername = getInitParameter("DATABASE_USERNAME");
 		String databasePassword = getInitParameter("DATABASE_PASSWORD");
 		

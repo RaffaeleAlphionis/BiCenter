@@ -17,7 +17,19 @@
     		<description>
     		</description>
     		<param-name>DATA_URL</param-name>
-    		<param-value>jdbc:mysql://localhost:3306/gest</param-value>
+    		<param-value>jdbc:mysql://localhost:3306/bicenter</param-value>
+    	</init-param>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>DATA_DRIVER_mauro</param-name>
+    		<param-value>com.mysql.cj.jdbc.Driver</param-value>
+    	</init-param>
+    	<init-param>
+    		<description>
+    		</description>
+    		<param-name>DATA_URL_mauro</param-name>
+    		<param-value>jdbc:mysql://127.0.0.1:3306/bicenter?allowMultiQueries=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</param-value>
     	</init-param>
     	<init-param>
     		<description>
@@ -35,7 +47,7 @@
     <servlet-mapping>
     	<servlet-name>ServiceLoader</servlet-name>
     	<url-pattern>/ServiceLoader</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping> 
 
     <welcome-file-list>
         <welcome-file>/WEB-INF/pages/index.jsp</welcome-file>

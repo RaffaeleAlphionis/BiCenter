@@ -1,6 +1,7 @@
 package com.gestwebapp.servlet.core;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.gest.core.business.dao.DaoDipendente;
 import com.gest.core.business.vo.VoDipendente;
 
-@WebServlet (urlPatterns = {"/login"})
+@WebServlet (urlPatterns = {"/login","/checkLogin"})
 public class ServletLogin extends HttpServlet{
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,12 +34,17 @@ public class ServletLogin extends HttpServlet{
 		logeduser.setPassword(password);
 		HttpSession session = req.getSession();
 		String outPath="";
-		if(/*fare la if del login*/) {
+		try {
+			if(DaoDipendente.login(logeduser)) {
 
-			session.setAttribute("userInSession", logeduser.getUsername());
-			outPath="/WEB-INF/pages/welcome.jsp";
-		}else{
-			outPath="/WEB-INF/pages/login.jsp?prova=errore";
+				session.setAttribute("userInSession", logeduser.getUsername());
+				outPath="/WEB-INF/pages/welcome.jsp";
+			}else{
+				outPath="/WEB-INF/pages/login.jsp?prova=errore";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		getServletContext().getRequestDispatcher(outPath).forward(req, resp);
 	}
