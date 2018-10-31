@@ -1,7 +1,5 @@
 package com.gest.core.business.vo;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 public class VoAzienda {
 
 	private Integer idAzienda;
