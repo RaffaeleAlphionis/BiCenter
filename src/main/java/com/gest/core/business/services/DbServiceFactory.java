@@ -1,7 +1,5 @@
 package com.gest.core.business.services;
 
-import java.sql.Connection;
-
 import com.gest.core.business.services.JdbcService;
 import com.gest.core.business.services.JdbcServiceImpl;
 import com.gestwebapp.web.utils.ConfigBean;
@@ -21,8 +19,6 @@ public class DbServiceFactory {
 
 	/**
 	 * restituisce una istanza del servizio database tramite JDBC.
-	 * 
-	 * @return
 	 */
 	public static JdbcService getJdbcDatabaseService() {
 		if (_jdbcService == null)
