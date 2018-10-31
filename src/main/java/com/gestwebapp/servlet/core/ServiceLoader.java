@@ -26,17 +26,23 @@ public class ServiceLoader extends HttpServlet {
 		
 		// recupero parametri di configurazione da file esterno
 		
-		String databaseDriver   = getInitParameter("DATABASE_DRIVER_mauro");
-		String databaseUrl	    = getInitParameter("DATABASE_URL_mauro");
-		String databaseUsername = getInitParameter("DATABASE_USERNAME");
-		String databasePassword = getInitParameter("DATABASE_PASSWORD");
+		String databaseMethod		= getInitParameter("DATABASE_METHOD");
+		String databaseDriver   	= getInitParameter("DATABASE_DRIVER");
+		String databaseUrl	    	= getInitParameter("DATABASE_URL");
+		String databaseUsername 	= getInitParameter("DATABASE_USERNAME");
+		String databasePassword 	= getInitParameter("DATABASE_PASSWORD");
+		String contextJndiName  	= getInitParameter("CONTEXT_JNDI_NAME");
+		String contextEnvironment 	= getInitParameter("CONTEXT_DS_ENV");
 		
 		// importazione dei dati nel configBean
 		
+		cb.setDatabaseConnectionMethod(databaseMethod);
 		cb.setDatabaseDriver(databaseDriver);
 		cb.setDatabaseUrl(databaseUrl);
 		cb.setDatabaseUsername(databaseUsername);
 		cb.setDatabasePassword(databasePassword);
+		cb.setContextJndiName(contextJndiName);
+		cb.setContextEnvironment(contextEnvironment);
 		
 		// 
 		try {

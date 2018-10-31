@@ -2,8 +2,8 @@ package com.gest.core.business.services;
 
 public interface DbService<T> {
 
-	public static final int TYPE_JDBC = 1; 
-	public static final int TYPE_JPA = 2; 
+	public static final String TYPE_JDBC = "DM"; 
+	public static final String TYPE_JPA = "DS"; 
 	
 	public T getDatabaseConnection() throws Exception;
 
