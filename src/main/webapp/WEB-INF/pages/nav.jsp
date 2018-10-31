@@ -7,7 +7,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
- 			<a class="navbar-brand" href="#">Bicenter</a>
+ 			<a class="navbar-brand" href="home">Bicenter</a>
   			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     			<span class="navbar-toggler-icon"></span>
   			</button>
@@ -23,7 +23,7 @@
         				<a class="nav-link" href="#">Bho</a>
       				</li>
     			</ul>
-    			<a href="login"><button type="button" class="btn btn-light">Login</button></a>
+    			<form action="login"><button type="submit" class="btn btn-light" >Login</form></a>
   			</div>
 		</nav>
     	
