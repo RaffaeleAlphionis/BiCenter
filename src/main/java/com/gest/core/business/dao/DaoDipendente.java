@@ -1,39 +1,87 @@
 package com.gest.core.business.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
-import com.gest.core.business.services.DbServiceFactory;
+import com.gest.core.business.exception.DatabaseException;
 import com.gest.core.business.vo.VoDipendente;
 
-public class DaoDipendente {
+public interface DaoDipendente {
 	
-	public void create() {};
-	
-	public VoDipendente read() {
-		
-		VoDipendente voDipendente = new VoDipendente();
-		
-		return voDipendente;
-	};
-	
-	public static boolean login(VoDipendente d) throws SQLException {
-		Connection connection = null;
-		boolean login = false;
-		connection = DbServiceFactory.getJdbcDatabaseService().getDatabaseConnection();
-		String q = "SELECT * FROM dipendente WHERE ?=user AND ?=password" ;
-		PreparedStatement pstatement = connection.prepareStatement(q);
-		pstatement.setString(1, d.getUsername());
-		pstatement.setString(2, d.getPassword());
-		ResultSet rs = pstatement.executeQuery();
-		if(rs.next()) login = true;
-		return login;
-	}
-	
-	public void update() {};
-	
-	public void delete() {}; 
-	
+	/**
+	 * Metodo che controlla l'autorizzazione dell'utente durante il login.
+	 * 
+	 * @param username
+	 * @param password
+	 * @return boolean
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 *
+	 */
+	boolean authorization(String username, String password) throws DatabaseException;
+
+	VoDipendente findByUsername(String username) throws DatabaseException;
+
+	/**
+	 * Metodo finder per la ricerca dell'utente tramite il suo id (primary key).
+	 * 
+	 * @param id
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws Exception
+	 */
+	VoDipendente findById(int id) throws DatabaseException;
+
+	/**
+	 * Metodo per la cancellazione dell'utente tramite il suo id (primary key).
+	 * 
+	 * @param id
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws Exception
+	 */
+	void delete(int id) throws DatabaseException;
+
+	/**
+	 * Metodo per la registrazione dell'utente nella base dati.
+	 * 
+	 * @param user
+	 *            void
+	 * @throws Exception
+	 *
+	 */
+	void save(VoDipendente dipendente) throws DatabaseException;
+
+	/**
+	 * Metodo per la modifica dell'utente nella base dati.
+	 * 
+	 * @param user
+	 *            void
+	 * @throws Exception
+	 *
+	 */
+	void update(VoDipendente dipendente) throws DatabaseException;
+
+	/**
+	 * Metodo finder per la ricerca di tutti gli utenti.
+	 * 
+	 * @param id
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws Exception
+	 */
+	List<VoDipendente> findAll() throws DatabaseException;
+
+	/**
+	 * Metodo per il controllo dell'esistenza di uno username
+	 * 
+	 * @param sql
+	 * @param user
+	 * @return
+	 * @throws SQLException
+	 */
+	boolean exist(String username) throws DatabaseException;
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.gest.core.business.dao.DaoDipendente;
+import com.gest.core.business.dao.DaoDipendenteImpl;
 import com.gest.core.business.vo.VoDipendente;
 
 @WebServlet (urlPatterns = {"/login","/checkLogin"})
@@ -35,7 +35,7 @@ public class ServletLogin extends HttpServlet{
 		HttpSession session = req.getSession();
 		String outPath="";
 		try {
-			if(DaoDipendente.login(logeduser)) {
+			if(DaoDipendenteImpl.login(logeduser)) {
 
 				session.setAttribute("userInSession", logeduser.getUsername());
 				outPath="/WEB-INF/pages/welcome.jsp";

@@ -2,6 +2,7 @@ package com.gest.core.business.vo;
 
 public class VoDipendente {
 
+	private Integer id;
 	private String username;
 	private String password;
 	/**
@@ -10,8 +11,8 @@ public class VoDipendente {
 	 */
 	
 	
-	public VoDipendente(String username, String password) {
-		super();
+	public VoDipendente(Integer id, String username, String password) {
+		this.id = id;
 		this.username = username;
 		this.password = password;
 	}
@@ -29,6 +30,12 @@ public class VoDipendente {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	
