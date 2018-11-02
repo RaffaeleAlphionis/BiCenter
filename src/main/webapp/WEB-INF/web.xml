@@ -48,7 +48,7 @@
 		<init-param>
 			<description>indirizzo del jndi Name</description>
 			<param-name>CONTEXT_JNDI_NAME</param-name>
-			<param-value>jdbc/gest-db</param-value>
+			<param-value>jdbc/NON ESISTE</param-value>
 		</init-param>
 		<init-param>
 			<description>indirizzo del DS</description>
