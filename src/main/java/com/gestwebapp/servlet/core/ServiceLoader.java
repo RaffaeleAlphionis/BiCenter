@@ -27,8 +27,8 @@ public class ServiceLoader extends HttpServlet {
 		// recupero parametri di configurazione da file esterno
 		
 		String databaseMethod		= getInitParameter("DATABASE_METHOD");
-		String databaseDriver   	= getInitParameter("DATABASE_DRIVER");
-		String databaseUrl	    	= getInitParameter("DATABASE_URL");
+		String databaseDriver   	= getInitParameter("DATABASE_DRIVER_mauro");
+		String databaseUrl	    	= getInitParameter("DATABASE_URL_mauro");
 		String databaseUsername 	= getInitParameter("DATABASE_USERNAME");
 		String databasePassword 	= getInitParameter("DATABASE_PASSWORD");
 		String contextJndiName  	= getInitParameter("CONTEXT_JNDI_NAME");
