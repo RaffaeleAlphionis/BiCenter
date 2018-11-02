@@ -26,6 +26,5 @@
     			<form action="login"><button type="submit" class="btn btn-light" >Login</form></a>
   			</div>
 		</nav>
-    	
     </body>
 </html>
