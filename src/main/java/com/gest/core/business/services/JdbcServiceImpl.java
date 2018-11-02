@@ -17,8 +17,6 @@ public class JdbcServiceImpl implements JdbcService {
 	private static JdbcServiceImpl _instance = null;
 
 	private static ConfigBean config = null;
-	
-	private DataSource ds;
 
 	private JdbcServiceImpl(ConfigBean cb) throws RuntimeException {
 
@@ -56,19 +54,19 @@ public class JdbcServiceImpl implements JdbcService {
 		if (config.getDatabaseConnectionMethod().equals("DS")) {
 		try {
 			  Context context = new InitialContext();
-			  Context envContext  = (Context)context.lookup("CONTEXT_DS_ENV");
-			  ds =(javax.sql.DataSource)envContext.lookup("CONTEXT_JNDI_NAME");
+			  Context envContext  = (Context)context.lookup(config.getContextEnvironment());
+			  javax.sql.DataSource ds =(javax.sql.DataSource)envContext.lookup(config.getContextJndiName());
 			  connection = ds.getConnection();
-			  connection.close();
+			  return connection;
 			}catch (Exception e) { 
 			  e.printStackTrace(); 
 			}
 		} else if(config.getDatabaseConnectionMethod().equals("DM")) {
-			connection = DriverManager.getConnection(config.getDatabaseUrl(), config.getDatabaseUsername(),
+			return DriverManager.getConnection(config.getDatabaseUrl(), config.getDatabaseUsername(),
 				config.getDatabasePassword());
 		
 		}
-		return connection;
+		return null;
 		
 	}
 

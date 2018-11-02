@@ -24,7 +24,7 @@
     	<init-param>
     		<description>
     		</description>
-    		<param-name>DATA_DRIVER_mauro</param-name>
+    		<param-name>DATABASE_DRIVER_mauro</param-name>
     		<param-value>com.mysql.cj.jdbc.Driver</param-value>
     	</init-param>
     	<init-param>
@@ -48,7 +48,7 @@
 		<init-param>
 			<description>indirizzo del jndi Name</description>
 			<param-name>CONTEXT_JNDI_NAME</param-name>
-			<param-value>jdbc/opengestdb-ds</param-value>
+			<param-value>jdbc/gest-db</param-value>
 		</init-param>
 		<init-param>
 			<description>indirizzo del DS</description>
@@ -68,12 +68,9 @@
       <param-name>DATABASE_METHOD</param-name>
       <param-value>DS</param-value>
     </init-param>
-	
+	<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet-mapping>
-		<servlet-name>ServiceLoader</servlet-name>
-		<url-pattern>/ServiceLoader</url-pattern>
-	</servlet-mapping>
+
 
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/pages/index.jsp</welcome-file>
