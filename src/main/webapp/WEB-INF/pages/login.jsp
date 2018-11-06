@@ -27,13 +27,16 @@
     		</form>
     	</div>
     	
-    		<%if(request.getParameter("err").equals("errore")){
-    			%>
+    		<%if(request.getParameter("err").equals("errore")){%>
     			<div class="col-md-12" style="position:absolute;">
     				<p style="text-align: center;color: red;font-size: 2em; font-weight: 900;"> Errore nel inserire i dati di accesso</p>
     			</div>
     		
-    		<% } %>
+    		<% } else if(request.getParameter("err").equals("sistema")) {%>
+    			<div class="col-md-12" style="position:absolute;">
+    				<p style="text-align: center;color: red;font-size: 2em; font-weight: 900;"> Errore nel sistema, ci dispiace ma riprova più tardi</p>
+    			</div>
+    		<% }%>
     	
        	</div>
        
