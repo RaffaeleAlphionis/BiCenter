@@ -43,7 +43,7 @@ public class DaoCorso {
 		Connection connection = null;
 		VoCorso voCorso = new VoCorso();
 		connection = DbServiceFactory.getJdbcDatabaseService().getDatabaseConnection();
-		String q = "SELECT * FROM corso WHERE id=? " ;
+		String q = "SELECT * FROM corso WHERE idcorso=? " ;
 		PreparedStatement pstatement = connection.prepareStatement(q);
 		pstatement.setString(1, id);
 		ResultSet rs = pstatement.executeQuery();
