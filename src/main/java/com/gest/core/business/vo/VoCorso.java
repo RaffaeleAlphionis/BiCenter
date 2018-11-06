@@ -7,7 +7,6 @@ public class VoCorso {
 	private Integer idCorso;
 	private Integer idAula;
 	private Integer idAzienda;
-	private Integer idDocente;
 	private String descrizione;
 	private Date dataInizio;
 	private Date dataFine;
@@ -26,7 +25,6 @@ public class VoCorso {
 		this.idCorso = idCorso;
 		this.idAula = idAula;
 		this.idAzienda = idAzienda;
-		this.idDocente = idDocente;
 		this.descrizione = descrizione;
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
@@ -51,12 +49,6 @@ public class VoCorso {
 	}
 	public void setIdAzienda(Integer idAzienda) {
 		this.idAzienda = idAzienda;
-	}
-	public Integer getIdDocente() {
-		return idDocente;
-	}
-	public void setIdDocente(Integer idDocente) {
-		this.idDocente = idDocente;
 	}
 	public String getDescrizione() {
 		return descrizione;
