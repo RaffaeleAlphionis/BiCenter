@@ -37,5 +37,24 @@ public class DaoCorso {
 	
 	public void update() {};
 	
-	public void delete() {};
+	public void delete() {}
+
+	public static VoCorso infCorso(String id) throws SQLException {
+		Connection connection = null;
+		VoCorso voCorso = new VoCorso();
+		connection = DbServiceFactory.getJdbcDatabaseService().getDatabaseConnection();
+		String q = "SELECT * FROM corso WHERE id=? " ;
+		PreparedStatement pstatement = connection.prepareStatement(q);
+		pstatement.setString(1, id);
+		ResultSet rs = pstatement.executeQuery();
+		if(rs.next()) {
+			voCorso.setIdCorso(rs.getInt("idCorso"));
+			voCorso.setIdAula(rs.getInt("idAula"));
+			voCorso.setIdAzienda(rs.getInt("idAzienda"));
+			voCorso.setDataInizio(rs.getDate("dataInizio"));
+			voCorso.setDataFine(rs.getDate("dataFine"));
+			voCorso.setDescrizione(rs.getString("descrizione"));
+		}
+		return voCorso;
+	};
 }
