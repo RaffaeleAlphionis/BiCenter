@@ -21,7 +21,7 @@ public class ServletLogin extends HttpServlet{
 		String outPath = "";
 
 		if (path.equals("/login")) {
-			outPath = "/WEB-INF/pages/login.jsp";
+			outPath = "/WEB-INF/pages/login.jsp?err=";
 		}
 		getServletContext().getRequestDispatcher(outPath).forward(req, resp);
 	}
@@ -40,7 +40,7 @@ public class ServletLogin extends HttpServlet{
 				session.setAttribute("userInSession", logeduser.getUsername());
 				outPath="/WEB-INF/pages/welcome.jsp";
 			}else{
-				outPath="/WEB-INF/pages/login.jsp?prova=errore";
+				outPath="/WEB-INF/pages/login.jsp?err=errore";
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
