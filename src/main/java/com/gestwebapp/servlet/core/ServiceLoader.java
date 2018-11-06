@@ -3,6 +3,7 @@ package com.gestwebapp.servlet.core;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpSession;
 
 import com.gest.core.business.services.DbServiceFactory;
 import com.gestwebapp.web.utils.ConfigBean;
