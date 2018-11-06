@@ -20,10 +20,14 @@
        					<a class="nav-link" href="corsi">Corsi</a>
       				</li>
      				 <li class="nav-item">
-        				<a class="nav-link" href="#">Aule</a>
+        				<a class="nav-link" href="aule">Aule</a>
       				</li>
     			</ul>
-    			<form action="login"><button type="submit" class="btn btn-light" >Login</form></a>
+    			<%if(session.getAttribute("userInSession") == null || session.getAttribute("userInSession").equals("")){ %>
+    				<form action="login"><button type="submit" class="btn btn-light" >Login</button></form>
+    			<%}else{%>
+    				<a Style="color:#fff;font-weight: 900;">Benvenuto <%=session.getAttribute("userInSession")%>,</a> <a href="logout" Style="color:red;font-weight: 900;"> Logout</a>
+    			<%} %>
   			</div>
 		</nav>
     </body>
