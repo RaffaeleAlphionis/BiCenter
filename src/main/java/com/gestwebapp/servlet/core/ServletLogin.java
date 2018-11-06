@@ -43,8 +43,8 @@ public class ServletLogin extends HttpServlet{
 				outPath="/WEB-INF/pages/login.jsp?err=errore";
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("Errore nel Login");
+			outPath="/WEB-INF/pages/login.jsp?err=sistema";
 		}
 		getServletContext().getRequestDispatcher(outPath).forward(req, resp);
 	}

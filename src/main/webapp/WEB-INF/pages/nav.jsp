@@ -17,10 +17,10 @@
         				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
      			 	</li>
       				<li class="nav-item">
-       					<a class="nav-link" href="#">Bho</a>
+       					<a class="nav-link" href="corsi">Corsi</a>
       				</li>
      				 <li class="nav-item">
-        				<a class="nav-link" href="#">Bho</a>
+        				<a class="nav-link" href="#">Aule</a>
       				</li>
     			</ul>
     			<form action="login"><button type="submit" class="btn btn-light" >Login</form></a>
